@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>JAAAKH</title>
+<meta charset="UTF-8">
+<title>JAAAKH</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5f7fa;
+  text-align: center;
+}
 
-      /* خلفية ناعمة مو سوداء */
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-      color: #333;
-    }
+header {
+  padding: 40px;
+}
 
-    .container {
-      margin-top: 100px;
-    }
+section {
+  padding: 40px;
+}
 
-    h1 {
-      font-size: 40px;
-      color: #222;
-    }
+h1 {
+  font-size: 40px;
+}
 
-    p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+.btn {
+  padding: 12px 25px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+}
 
-    .btn {
-      margin-top: 25px;
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #4CAF50;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #45a049;
-      transform: scale(1.05);
-    }
-  </style>
+/* صندوق */
+.card {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Welcome to JAAAKH</h1>
-    <p>This is my first website 🚀</p>
+<header>
+  <h1>Welcome to JAAAKH</h1>
+  <p>This is my first website 🚀</p>
+  <button class="btn">Contact Us</button>
+</header>
 
-    <button class="btn" onclick="alert('Welcome to JAAAKH')">
-      Contact Us
-    </button>
+<section>
+  <div class="card">
+    <h2>About Us</h2>
+    <p>This project is about digital finance and future technology.</p>
   </div>
+
+  <div class="card">
+    <h2>Our Goal</h2>
+    <p>Build a strong and trusted platform.</p>
+  </div>
+</section>
 
 </body>
 </html>
