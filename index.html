@@ -14,15 +14,11 @@ body {
   text-align: center;
 }
 
-.container {
-  padding: 20px;
-}
+.container { padding: 20px; }
 
 h1 { font-size: 28px; }
 
-.subtitle { color: #555; margin-bottom: 10px; }
-
-.arabic-title { font-size: 22px; margin-top: 10px; }
+.subtitle { color: #555; }
 
 .line {
   width: 80%;
@@ -38,15 +34,7 @@ img {
 
 .section { margin-top: 25px; }
 
-.section h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.section p {
-  line-height: 1.7;
-  color: #333;
-}
+.section h2 { font-size: 20px; }
 
 ul {
   text-align: left;
@@ -54,21 +42,56 @@ ul {
   margin: auto;
 }
 
-.contact-btn {
-  display: block;
-  width: 80%;
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 85%;
   margin: 10px auto;
-  padding: 15px;
+  padding: 14px;
   border-radius: 10px;
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.whatsapp { background: #25D366; }
-.instagram { background: #E1306C; }
-.facebook { background: #1877F2; }
+.whatsapp { background:#25D366; }
+.instagram { background:#E1306C; }
+.facebook { background:#1877F2; }
+.buy { background:#f0b90b; color:black; }
+.copy { background:#444; }
+.chart { background:black; }
+
+.price {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+}
 </style>
+
+<script>
+function copyContract() {
+  navigator.clipboard.writeText("0x0a409e1fd0ec12e52cd9aaf55007ec83ff037609");
+  alert("تم نسخ العقد ✅");
+}
+
+async function getPrice() {
+  try {
+    let res = await fetch("https://api.dexscreener.com/latest/dex/tokens/0x0a409e1fd0ec12e52cd9aaf55007ec83ff037609");
+    let data = await res.json();
+    let price = data.pairs[0].priceUsd;
+    document.getElementById("price").innerText = "$ " + price;
+  } catch {
+    document.getElementById("price").innerText = "قريباً";
+  }
+}
+
+setInterval(getPrice, 10000);
+window.onload = getPrice;
+</script>
+
 </head>
 
 <body>
@@ -81,7 +104,13 @@ ul {
 
 <div class="line"></div>
 
-<img src="IMG-20260410-WA0010.jpg" alt="JAAAKH Logo">
+<img src="IMG-20260410-WA0010.jpg">
+
+<!-- السعر -->
+<div class="section">
+<h2>Live Price | السعر المباشر</h2>
+<div id="price" class="price">Loading...</div>
+</div>
 
 <!-- ABOUT -->
 <div class="section">
@@ -92,7 +121,6 @@ ul {
 
 <p>The project aims to provide fast and low-cost financial transactions across the Middle East and global markets.</p>
 <p dir="rtl">يهدف المشروع إلى توفير معاملات مالية سريعة ومنخفضة التكلفة في الشرق الأوسط والأسواق العالمية.</p>
-
 </div>
 
 <!-- VISION -->
@@ -101,7 +129,6 @@ ul {
 
 <p>JAAAKH represents innovation, luxury, and advanced financial technology built for the future.</p>
 <p dir="rtl">يمثل JAAAKH الابتكار والفخامة والتقنية المالية المتقدمة المصممة للمستقبل.</p>
-
 </div>
 
 <!-- SERVICES -->
@@ -116,7 +143,6 @@ ul {
 <li>Real estate | العقارات</li>
 <li>Import and export | الاستيراد والتصدير</li>
 </ul>
-
 </div>
 
 <!-- PROBLEM -->
@@ -132,7 +158,6 @@ ul {
 <li>Limited access to financial services | محدودية الوصول للخدمات المالية</li>
 <li>Low trust in traditional systems | انخفاض الثقة بالأنظمة التقليدية</li>
 </ul>
-
 </div>
 
 <!-- SOLUTION -->
@@ -141,21 +166,41 @@ ul {
 
 <p>JAAAKH provides a fast, secure, and low-cost digital financial solution designed for modern markets.</p>
 <p dir="rtl">يوفر JAAAKH حلاً مالياً رقمياً سريعاً وآمناً ومنخفض التكلفة مصمم للأسواق الحديثة.</p>
+</div>
+
+<!-- ACTIONS -->
+<div class="section">
+<h2>Token Actions</h2>
+
+<a class="btn buy" href="https://pancakeswap.finance/swap?outputCurrency=0x0a409e1fd0ec12e52cd9aaf55007ec83ff037609">
+🚀 شراء التوكن
+</a>
+
+<button class="btn copy" onclick="copyContract()">
+📋 نسخ العقد
+</button>
+
+<a class="btn chart" href="https://www.dextools.io/app/en/bnb/pair-explorer/0x0a409e1fd0ec12e52cd9aaf55007ec83ff037609">
+📈 مشاهدة الشارت
+</a>
 
 </div>
 
-<!-- CONTACT -->
+<!-- SOCIAL -->
 <div class="section">
-<h2>Contact | التواصل</h2>
+<h2>Join Community | انضم للمجتمع</h2>
 
-<p>
-📱 WhatsApp:
-<a href="https://wa.me/9647829263979">https://wa.me/9647829263979</a>
-</p>
+<a class="btn whatsapp" href="https://wa.me/9647829263979">
+📱 WhatsApp
+</a>
 
-<a class="contact-btn instagram" href="https://www.instagram.com/jaaakh_1">📸 إنستغرام</a>
+<a class="btn instagram" href="https://www.instagram.com/jaaakh_1">
+📸 Instagram
+</a>
 
-<a class="contact-btn facebook" href="https://www.facebook.com/groups/538018833565985/">👥 قروب الفيس حيتان تداول العرب</a>
+<a class="btn facebook" href="https://www.facebook.com/groups/538018833565985/">
+👥 قروب الفيس حيتان تداول العرب
+</a>
 
 </div>
 
